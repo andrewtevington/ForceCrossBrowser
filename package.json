@@ -1,0 +1,23 @@
+{
+  "name": "forcecrossbrowser",
+  "version": "1.0.0",
+  "description": "Query Rally each release cycle to see which customers should be forced to cross browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewtevington/ForceCrossBrowser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewtevington/ForceCrossBrowser/issues"
+  },
+  "homepage": "https://github.com/andrewtevington/ForceCrossBrowser#readme",
+  "dependencies": {
+    "aws-sdk": "^2.10.0",
+    "rally": "^2.1.2"
+  }
+}
