@@ -16,4 +16,4 @@ This will query all accepted user stories under the `F934` feature with a releas
 
 ## Authentication
 
-All authentication credentials (Rally / AWS) should go in `/auth/index.js/`. Do not commit actual credentials, leave the exported object as a blank shell.
+All authentication credentials (Rally / AWS) should go in `/auth/index.js`. Do not commit actual credentials, leave the exported object as a blank shell.
