@@ -59,26 +59,33 @@ function forceCompany(dynamoInstance, companyKey) {
 			updateData.TableName = "Tenants";
 			updateData.Item.ForceUrl = { "N": "1" };
 			updateData.Item.Url = { "S": newUrl };
-			
-			console.log(companyKey + " old url: " + oldUrl);
-			console.log(companyKey + " new url: " + newUrl);
-			console.log("");
-			
-			dynamoInstance.putItem(updateData, function(writeError) {
-				if (writeError) {
-					console.log(writeError);
-				}
-			});
+
+			if (newUrl === oldUrl) {
+				dynamoInstance.putItem(updateData, function(writeError) {
+					if (writeError) {
+						console.log(writeError);
+					} else {
+						console.log("UPDATED: " + companyKey);
+					}
+				});	
+			} else {
+				console.log("NOT UPDATED: " + companyKey);				
+			}
 		}
 	});
 }
 
-var auth = require("./auth");
+var rallyUser = process.env.RALLYUSER || "";
+var rallyPassword = process.env.RALLYPASSWORD || "";
+var awsKey = process.env.AWSKEY || "";
+var awsSecret = process.env.AWSSECRET || "";
+var awsRegion = process.env.AWSREGION || "";
+
 var rally = require("rally");
-var rallyApi = rally(auth.rally);
+var rallyApi = rally({user: rallyUser, pass: rallyPassword});
 var queryUtils = rally.util.query;
 var aws = require("aws-sdk");
-var dynamoInstance = new aws.DynamoDB(auth.aws);
+var dynamoInstance = new aws.DynamoDB({accessKeyId: awsKey, secretAccessKey: awsSecret, region: awsRegion});
 var featureId = (process.argv[2] || "").trim();
 var scheduleState = (process.argv[3] || "").trim();
 
