@@ -6,7 +6,7 @@ Query Rally to see which customers should be forced to cross browser.
 
 The general syntax is:
 
-`node index.js feature schedule state`
+`node index.js feature scheduleState`
 
 For example:
 
