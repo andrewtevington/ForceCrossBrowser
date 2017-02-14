@@ -18,8 +18,10 @@ This will query all in-progress user stories under the `F933` feature. It will t
 
 All authentication credentials (Rally / AWS) are stored in environment variables. Set yours accordingly:
 
-`SET RALLYUSER=user
+```
+SET RALLYUSER=user
 SET RALLYPASSWORD=password
 SET AWSKEY=key
 SET AWSSECRET=secretkey
-SET AWSREGION=region`
+SET AWSREGION=region
+```
