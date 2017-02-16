@@ -28,8 +28,12 @@ function getUserStories(rallyApi, portfolioItem, scheduleState, callback) {
 }
 
 function parseCompanyKey(userStory) {
+	var intendedLength = 6;
 	var spaceSplit = userStory.Name.split(" ");
-	return spaceSplit[spaceSplit.length - 1].substr(1).split(")")[0];
+	var rawCompanyKey = spaceSplit[spaceSplit.length - 1].substr(1).split(")")[0];
+	var companyKey = "0".repeat(intendedLength - rawCompanyKey.length) + rawCompanyKey;
+
+	return companyKey;
 }
 
 function forceCompany(dynamoInstance, companyKey) {
@@ -67,9 +71,9 @@ function forceCompany(dynamoInstance, companyKey) {
 					} else {
 						console.log("UPDATED: " + companyKey);
 					}
-				});	
+				});
 			} else {
-				console.log("NOT UPDATED: " + companyKey);				
+				console.log("NOT UPDATED: " + companyKey + "\r\n");
 			}
 		}
 	});
