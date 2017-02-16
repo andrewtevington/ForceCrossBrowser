@@ -73,7 +73,7 @@ function forceCompany(dynamoInstance, companyKey) {
 					}
 				});
 			} else {
-				console.log("NOT UPDATED: " + companyKey + "\r\n");
+				console.log("NOT UPDATED: " + companyKey);
 			}
 		}
 	});
